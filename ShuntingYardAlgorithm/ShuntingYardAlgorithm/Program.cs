@@ -1,27 +1,31 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace ShuntingYardAlgorithm
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             //readind data
             string input = Console.ReadLine();
 
-            var data = input.Split().ToList<char>();
+            List<char> data = input.Split().Select(char.Parse).ToList();
 
             var output = new Queue<char>();
 
-            var stack = new Stack<char>();
+            var opStack = new Stack<char>();
 
-            while (data.Length > 0)
+            while (data.Count > 0)
             {
                 if (char.IsDigit(data[0]))
-                {
-                    output.Enqueue();
+                { 
+                    char ch = data[0];
+                    data.RemoveAt(0);
+                    output.Enqueue(ch);
                 }
-                else if ()
+                else if (data[0] ==     )
                 {
 
                 }
