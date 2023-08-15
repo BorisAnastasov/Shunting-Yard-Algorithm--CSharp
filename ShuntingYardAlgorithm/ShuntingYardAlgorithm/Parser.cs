@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ShuntingYardAlgorithm
 {
-    internal class Parser
+    public class Parser
     {
+
     }
 }

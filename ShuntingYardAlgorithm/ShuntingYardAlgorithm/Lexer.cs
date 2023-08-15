@@ -25,6 +25,23 @@ namespace ShuntingYardAlgorithm
             {
                 return new Token {TokenType = Token.Type.EOF };
             }
+            
+
+            char num = input[position];
+
+            if(char.IsDigit(num)) 
+            { 
+                if(position>=input.Length) 
+                { 
+                    return new Token { TokenType = Token.Type.Number, Value = num.ToString() };
+                }
+
+                position++;
+                while(position < input.Length) 
+                {
+                    
+                }
+            }
         }
     }
 }
