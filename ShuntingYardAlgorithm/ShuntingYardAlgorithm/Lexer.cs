@@ -18,7 +18,6 @@ namespace ShuntingYardAlgorithm
             position = 0;
         }
 
-
         public Token GetNextToken()
         {
             if(position >= input.Length)
@@ -26,7 +25,6 @@ namespace ShuntingYardAlgorithm
                 return new Token {TokenType = Token.Type.EOF };
             }
             
-
             char currChar = input[position];
             position++;
             if (char.IsDigit(currChar))
@@ -50,7 +48,16 @@ namespace ShuntingYardAlgorithm
                     {
                         throw new Exception("Invalid syntaxis.");
                     }
+                    else
+                    {
+                        return new Token { TokenType = Token.Type.Space };
+                    }
                 }
+                else
+                {
+                    return new Token { TokenType = Token.Type.Space };
+                }
+
             }
             else
             {
