@@ -11,9 +11,9 @@ namespace ShuntingYardAlgorithm
         private Lexer lexer;
         private Token currToken;
 
-        public Parser(Lexer lexer)
+        public Parser(string input)
         {
-            lexer = lexer;
+            lexer = new Lexer(input);
             currToken = lexer.GetNextToken();
         }
 
