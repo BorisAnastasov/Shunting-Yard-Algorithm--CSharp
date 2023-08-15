@@ -8,6 +8,14 @@ namespace ShuntingYardAlgorithm
 {
     public class Parser
     {
+        private Lexer lexer;
+        private Token currToken;
+
+        public Parser(Lexer lexer)
+        {
+            lexer = lexer;
+            currToken = lexer.GetNextToken();
+        }
 
     }
 }

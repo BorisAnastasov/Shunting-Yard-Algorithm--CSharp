@@ -19,16 +19,7 @@ namespace ShuntingYardAlgorithm
 
             while (data.Count > 0)
             {
-                if (char.IsDigit(data[0]))
-                { 
-                    char ch = data[0];
-                    data.RemoveAt(0);
-                    output.Enqueue(ch);
-                }
-                else if (data[0] ==     )
-                {
 
-                }
             }
         }
     }
