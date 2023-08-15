@@ -44,7 +44,13 @@ namespace ShuntingYardAlgorithm
             }
             else if (char.IsWhiteSpace(currChar))
             {
-                continue;
+                if(position-1 < input.Length && position-1 > 0) 
+                {
+                    if (char.IsWhiteSpace(input[position]))
+                    {
+                        throw new Exception("Invalid syntaxis.");
+                    }
+                }
             }
             else
             {
