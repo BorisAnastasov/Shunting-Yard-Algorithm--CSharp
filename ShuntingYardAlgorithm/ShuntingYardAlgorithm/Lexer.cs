@@ -27,20 +27,28 @@ namespace ShuntingYardAlgorithm
             }
             
 
-            char num = input[position];
-
-            if(char.IsDigit(num)) 
-            { 
-                if(position>=input.Length) 
-                { 
-                    return new Token { TokenType = Token.Type.Number, Value = num.ToString() };
-                }
-
-                position++;
-                while(position < input.Length) 
+            char currChar = input[position];
+            position++;
+            if (char.IsDigit(currChar))
+            {
+                string num = currChar.ToString();
+                while (position < input.Length && char.IsDigit(input[position]))
                 {
-                    
+                    num += input[position];
                 }
+                return new Token { TokenType = Token.Type.Number, Value = num };
+            }
+            else if ("+-*/".Contains(currChar))
+            {
+                return new Token { TokenType = Token.Type.Operator, Value = currChar.ToString() };
+            }
+            else if (char.IsWhiteSpace(currChar))
+            {
+                continue;
+            }
+            else
+            {
+                throw new Exception("Invalid character encountered.");
             }
         }
     }
