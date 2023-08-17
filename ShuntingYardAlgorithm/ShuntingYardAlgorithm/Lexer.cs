@@ -34,19 +34,20 @@ namespace ShuntingYardAlgorithm
                             {
                                    num += input[position];
                             }
-                            return new Token { TokenType = Token.Type.Number, Value = num, Precenence = 3 };
+                            return new Token { TokenType = Token.Type.Number, Value = num};
                      }
                      else if ("+-*/".Contains(currChar))
                      {
                             Token token = new Token { TokenType = Token.Type.Operator, Value = currChar.ToString() };
                             token.Precenence = currChar == '-' || currChar == '+' ? 2 : currChar == '^' ? 4 : 3;
-                            return token;
+                            token.Associativity = currChar == '^' ? Token.AssociativityType.Right : Token.AssociativityType.Left;
+                            return token; 
                      }
                      else if (char.IsWhiteSpace(currChar))
                      {
                             position++;
                             GetNextToken();
-                            return null;
+                            return null;  
                      }
                      else
                      {

@@ -3,24 +3,29 @@ using System.Collections.Generic;
 
 namespace ShuntingYardAlgorithm
 {
-    internal class Program
-    {
+       internal class Program
+       {
 
-        static void Main(string[] args)
-        {
-            //readind data
-            string input = Console.ReadLine();
+              static void Main(string[] args)
+              {
+                     //readind data
+                     string input = Console.ReadLine();
 
-            List<char> data = input.Split().Select(char.Parse).ToList();
+                     var output = new Queue<string>();
 
-            var output = new Queue<char>();
+                     var opStack = new Stack<string>();
 
-            var opStack = new Stack<char>();
+                     var parser = new Parser(input);
 
-            while (data.Count > 0)
-            {
+                     var currToken = parser.CurrToken;
 
-            }
-        }
-    }
+                     while (currToken.TokenType != Token.Type.EOF)
+                     {
+                            if (currToken.TokenType == Token.Type.Number)
+                            {
+                                   output.Enqueue(currToken.Value);
+                            }
+                     }
+              }
+       }
 }
