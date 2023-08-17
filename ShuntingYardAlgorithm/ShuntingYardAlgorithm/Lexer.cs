@@ -9,7 +9,7 @@ namespace ShuntingYardAlgorithm
 {
        public class Lexer
        {
-              private readonly string input;
+              private string input;
               private int position;
 
               public Lexer(string input)
@@ -33,6 +33,7 @@ namespace ShuntingYardAlgorithm
                             while (position < input.Length && char.IsDigit(input[position]))
                             {
                                    num += input[position];
+                                   position++;
                             }
                             return new Token { TokenType = Token.Type.Number, Value = num };
                      }

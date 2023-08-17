@@ -9,7 +9,7 @@ namespace ShuntingYardAlgorithm
               static void Main(string[] args)
               {
                      //readind data
-                     string input = Console.ReadLine();
+                     var input = Console.ReadLine();
 
                      var output = new Queue<string>();
 
@@ -17,7 +17,7 @@ namespace ShuntingYardAlgorithm
 
                      var parser = new Parser(input);
 
-                     var currToken = parser.CurrToken;
+                     var currToken = parser.CurrToken; 
 
                      while (currToken.TokenType != Token.Type.EOF)
                      {
