@@ -22,8 +22,7 @@ namespace ShuntingYardAlgorithm
 
               public Token Parse()
               {
-                     
-
+                     return lexer.GetNextToken();
               }
        }
 }

@@ -18,7 +18,7 @@ namespace ShuntingYardAlgorithm
                      position = 0;
               }
 
-              public Token? GetNextToken()
+              public Token GetNextToken()
               {
                      if (position >= input.Length)
                      {
@@ -34,20 +34,27 @@ namespace ShuntingYardAlgorithm
                             {
                                    num += input[position];
                             }
-                            return new Token { TokenType = Token.Type.Number, Value = num};
+                            return new Token { TokenType = Token.Type.Number, Value = num };
                      }
                      else if ("+-*/".Contains(currChar))
                      {
                             Token token = new Token { TokenType = Token.Type.Operator, Value = currChar.ToString() };
                             token.Precenence = currChar == '-' || currChar == '+' ? 2 : currChar == '^' ? 4 : 3;
                             token.Associativity = currChar == '^' ? Token.AssociativityType.Right : Token.AssociativityType.Left;
-                            return token; 
+                            return token;
+                     }
+                     else if ("()".Contains(currChar))
+                     {
+
+                            var token = new Token { TokenType = Token.Type.Parenthesis, Value = currChar.ToString() };
+                            token.Parant = currChar == '(' ? Token.ParantType.Left : Token.ParantType.Right;
+                            return token;
                      }
                      else if (char.IsWhiteSpace(currChar))
                      {
                             position++;
                             GetNextToken();
-                            return null;  
+                            return null;
                      }
                      else
                      {
