@@ -17,5 +17,10 @@ namespace ShuntingYardAlgorithm
             currToken = lexer.GetNextToken();
         }
 
+        public void  Parse() 
+        { 
+        
+        
+        }
     }
 }
