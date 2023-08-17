@@ -27,6 +27,7 @@ namespace ShuntingYardAlgorithm
 
                      char currChar = input[position];
                      position++;
+                     currChar = currChar == ' ' ? input[position] : input[position-1];
                      if (char.IsDigit(currChar))
                      {
                             string num = currChar.ToString();
@@ -50,12 +51,6 @@ namespace ShuntingYardAlgorithm
                             var token = new Token { TokenType = Token.Type.Parenthesis, Value = currChar.ToString() };
                             token.Parant = currChar == '(' ? Token.ParantType.Left : Token.ParantType.Right;
                             return token;
-                     }
-                     else if (char.IsWhiteSpace(currChar))
-                     {
-                            position++;
-                            GetNextToken();
-                            return null;
                      }
                      else
                      {
