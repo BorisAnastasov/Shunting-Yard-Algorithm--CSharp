@@ -2,19 +2,21 @@
 The Shunting Yard Algorithm is a method for parsing arithmetical or logical expressions, or a combination of both, specified in infix notation. It can produce a postfix notation string, also known as Reverse Polish notation.
 
 ### What is the main logic?
-<p>  While there are tokens to be read:</p>
-<p>        Read a token</p>
-<p>        If it's a number add it to queue</p>
-<p>        If it's an operator</p>
-<p>               While there's an operator on the top of the stack with greater precedence:</p>
-<p>                       Pop operators from the stack onto the output queue</p>
-<p>               Push the current operator onto the stack</p>
-<p>        If it's a left bracket push it onto the stack</p>
-<p>        If it's a right bracket </p>
-<p>            While there's not a left bracket at the top of the stack:</p>
-<p>                     Pop operators from the stack onto the output queue.</p>
-<p>             Pop the left bracket from the stack and discard it</p>
-<p> While there are operators on the stack, pop them to the queue</p>
+```
+  While there are tokens to be read:
+       Read a token
+        ->If it's a number add it to queue
+        ->If it's an operator
+               While there's an operator on the top of the stack with greater precedence:
+                       Pop operators from the stack onto the output queue
+               Push the current operator onto the stack
+        ->If it's a left bracket push it onto the stack
+        ->If it's a right bracket 
+            While there's not a left bracket at the top of the stack:
+                     Pop operators from the stack onto the output queue.
+             Pop the left bracket from the stack and discard it
+ While there are operators on the stack, pop them to the queue
+```
 
 ### Example
 <p>
