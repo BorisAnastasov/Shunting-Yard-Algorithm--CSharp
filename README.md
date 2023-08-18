@@ -3,10 +3,10 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
 
 ### What are the rules?
 
----> Expressions are parsed left to right.
----> Each time a number or operand is read, we push it to the stack.
----> Each time an operator comes up, we pop the required operands from the stack, perform the operations, and push the result back to the stack.
----> We are finished when there are no tokens (numbers, operators, or any other mathematical symbol) to read. The final number on the stack is the result.
+* Expressions are parsed left to right.
+* Each time a number or operand is read, we push it to the stack.
+* Each time an operator comes up, we pop the required operands from the stack, perform the operations, and push the result back to the stack.
+* We are finished when there are no tokens (numbers, operators, or any other mathematical symbol) to read. The final number on the stack is the result.
 
 <dl>
                                         <dd>
