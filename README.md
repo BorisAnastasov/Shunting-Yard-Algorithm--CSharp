@@ -1,4 +1,4 @@
-### Shunting Yard Algorithm
+## Shunting Yard Algorithm
 The Shunting Yard Algorithm is a method for parsing arithmetical or logical expressions, or a combination of both, specified in infix notation. It can produce a postfix notation string, also known as Reverse Polish notation.
 
 ### What are the rules?
