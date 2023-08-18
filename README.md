@@ -51,3 +51,158 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
                                         </dd>
                                     </dl>
                                     <p>
+<dl>
+                                        <dd>
+                                            <table class="wikitable">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Token</th>
+                                                        <th>Action</th>
+                                                        <th>
+                                                            Output<br/>
+                                                            (in <a href="/wiki/Reverse_Polish_Notation" class="mw-redirect" title="Reverse Polish Notation">RPN</a>
+                                                            )
+                                                        </th>
+                                                        <th>
+                                                            Operator<br/>stack
+                                                        </th>
+                                                        <th>Notes
+</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">3</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">+</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3</td>
+                                                        <td align="right">+</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">4</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4</td>
+                                                        <td align="right">+</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">×</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4</td>
+                                                        <td align="right">× +</td>
+                                                        <td>× has higher precedence than +
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">2</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4 2</td>
+                                                        <td align="right">× +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" rowspan="2">÷</td>
+                                                        <td>Pop stack to output</td>
+                                                        <td>3 4 2 ×</td>
+                                                        <td align="right">+</td>
+                                                        <td>÷ and × have same precedence
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4 2 ×</td>
+                                                        <td align="right">÷ +</td>
+                                                        <td>÷ has higher precedence than +
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">(</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4 2 ×</td>
+                                                        <td align="right">( ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">1</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4 2 × 1</td>
+                                                        <td align="right">( ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">−</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4 2 × 1</td>
+                                                        <td align="right">− ( ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">5</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4 2 × 1 5</td>
+                                                        <td align="right">− ( ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" rowspan="2">)</td>
+                                                        <td>Pop stack to output</td>
+                                                        <td>3 4 2 × 1 5 −</td>
+                                                        <td align="right">( ÷ +</td>
+                                                        <td>Repeated until "(" found
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Pop stack</td>
+                                                        <td>3 4 2 × 1 5 −</td>
+                                                        <td align="right">÷ +</td>
+                                                        <td>Discard matching parenthesis
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">^</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4 2 × 1 5 −</td>
+                                                        <td align="right">^ ÷ +</td>
+                                                        <td>^ has higher precedence than ÷
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">2</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4 2 × 1 5 − 2</td>
+                                                        <td align="right">^ ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">^</td>
+                                                        <td>Push token to stack</td>
+                                                        <td>3 4 2 × 1 5 − 2</td>
+                                                        <td align="right">^ ^ ÷ +</td>
+                                                        <td>^ is evaluated right-to-left
+</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">3</td>
+                                                        <td>Add token to output</td>
+                                                        <td>3 4 2 × 1 5 − 2 3</td>
+                                                        <td align="right">^ ^ ÷ +</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <i>end</i>
+                                                        </td>
+                                                        <td>Pop entire stack to output</td>
+                                                        <td>3 4 2 × 1 5 − 2 3 ^ ^ ÷ +</td>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </dd>
+                                    </dl>
