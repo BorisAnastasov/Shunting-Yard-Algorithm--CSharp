@@ -24,10 +24,9 @@ namespace ShuntingYardAlgorithm
                      {
                             return new Token { TokenType = Token.Type.EOF };
                      }
-
                      char currChar = input[position];
                      position++;
-                     currChar = currChar == ' ' ? input[position] : input[position-1];
+                     currChar = currChar == ' ' ? input[position++] : input[position-1];
                      if (char.IsDigit(currChar))
                      {
                             string num = currChar.ToString();
@@ -38,7 +37,7 @@ namespace ShuntingYardAlgorithm
                             }
                             return new Token { TokenType = Token.Type.Number, Value = num };
                      }
-                     else if ("+-*/".Contains(currChar))
+                     else if ("+-*/^".Contains(currChar))
                      {
                             Token token = new Token { TokenType = Token.Type.Operator, Value = currChar.ToString() };
                             token.Precenence = currChar == '-' || currChar == '+' ? 2 : currChar == '^' ? 4 : 3;
