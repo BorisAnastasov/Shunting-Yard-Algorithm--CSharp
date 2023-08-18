@@ -8,16 +8,19 @@ namespace ShuntingYardAlgorithm
 
               static void Main(string[] args)
               {
-                     //5 + 4 * 3 * (1 + 2)
-                     //readind data
+                     //saving the input data as string
                      var input = Console.ReadLine();
 
+                     // creating a queue for the output (it can also be a list etc. - > it doesn't matter)
                      var output = new Queue<string>();
 
+                     // creating a stack for the operators
                      var opStack = new Stack<Token>();
 
+                     // using a parser for taking each element from the input
                      var parser = new Parser(input);
 
+                     // creating a variable for the current element that i am checking
                      var currToken = parser.CurrToken;
 
                      while (currToken.TokenType != Token.Type.EOF)
