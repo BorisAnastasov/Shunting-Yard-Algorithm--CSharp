@@ -18,7 +18,7 @@ namespace ShuntingYardAlgorithm
 
                      var parser = new Parser(input);
 
-                     var currToken = parser.CurrToken; 
+                     var currToken = parser.CurrToken;
 
                      while (currToken.TokenType != Token.Type.EOF)
                      {
@@ -28,15 +28,20 @@ namespace ShuntingYardAlgorithm
                             }
                             else if (currToken.TokenType == Token.Type.Operator)
                             {
-                                   while (opStack.Peek() != null
-                                   && opStack.Peek().TokenType != Token.Type.Parenthesis
-                                   && currToken.Precenence > opStack.Peek().Precenence
-                                   || currToken.Precenence == opStack.Peek().Precenence
-                                   && opStack.Peek().Associativity == Token.AssociativityType.Left)
+                                   var token = opStack.Peek();
+                                   if (token != null)
                                    {
-                                          output.Enqueue(opStack.Pop().Value);
+                                          while (token.TokenType != Token.Type.Parenthesis
+                                                && currToken.Precenence > token.Precenence
+                                                || currToken.Precenence == token.Precenence
+                                                && token.Associativity == Token.AssociativityType.Left)
+                                          {
+                                                 output.Enqueue(opStack.Pop().Value);
+                                                 token = opStack.Peek();
+                                          }
+                                          opStack.Push(currToken);
                                    }
-                                   opStack.Push(currToken);
+
                             }
                             else if (currToken.TokenType == Token.Type.Parenthesis && currToken.Parant == Token.ParantType.Right)
                             {
