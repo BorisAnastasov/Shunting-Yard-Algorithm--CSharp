@@ -80,8 +80,7 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
                                                         <th>Action</th>
                                                         <th>
                                                             Output<br/>
-                                                            (in <a href="/wiki/Reverse_Polish_Notation" class="mw-redirect" title="Reverse Polish Notation">RPN</a>
-                                                            )
+                                                            (in RPN)
                                                         </th>
                                                         <th>
                                                             Operator<br/>stack
