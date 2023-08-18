@@ -225,3 +225,6 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
                                             </table>
                                         </dd>
                                     </dl>
+<p>
+                                        Output: <span class="nowrap">3 4 2 × 1 5 − 2 3 ^ ^ ÷ +</span>
+                                    </p>
