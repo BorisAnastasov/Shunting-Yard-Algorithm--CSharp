@@ -1,28 +1,9 @@
 ### Shunting Yard Algorithm
 The Shunting Yard Algorithm is a method for parsing arithmetical or logical expressions, or a combination of both, specified in infix notation. It can produce a postfix notation string, also known as Reverse Polish notation.
 
-### What is the main logic?
-```
-  While there are tokens to be read:
-       Read a token
-        ->If it's a number add it to queue
-        ->If it's an operator
-               While there's an operator on the top of the stack with greater precedence:
-                       Pop operators from the stack onto the output queue
-               Push the current operator onto the stack
-        ->If it's a left bracket push it onto the stack
-        ->If it's a right bracket 
-            While there's not a left bracket at the top of the stack:
-                     Pop operators from the stack onto the output queue.
-             Pop the left bracket from the stack and discard it
- While there are operators on the stack, pop them to the queue
-```
+### What are the rules?
 
-### Example
-<p>
-                                        Input: <span class="nowrap">3 + 4 × 2 ÷ ( 1 − 5 ) ^ 2 ^ 3</span>
-                                    </p>
-                                    <dl>
+<dl>
                                         <dd>
                                             <table class="wikitable">
                                                 <tbody>
@@ -67,6 +48,29 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
                                         </dd>
                                     </dl>
                                     <p>
+
+### What is the main logic?
+```
+  While there are tokens to be read:
+       Read a token
+        ->If it's a number add it to queue
+        ->If it's an operator
+               While there's an operator on the top of the stack with greater precedence:
+                       Pop operators from the stack onto the output queue
+               Push the current operator onto the stack
+        ->If it's a left bracket push it onto the stack
+        ->If it's a right bracket 
+            While there's not a left bracket at the top of the stack:
+                     Pop operators from the stack onto the output queue.
+             Pop the left bracket from the stack and discard it
+ While there are operators on the stack, pop them to the queue
+```
+
+### Example
+<p>
+                                        Input: <span class="nowrap">3 + 4 × 2 ÷ ( 1 − 5 ) ^ 2 ^ 3</span>
+                                    </p>
+                                    
 <dl>
                                         <dd>
                                             <table class="wikitable">
