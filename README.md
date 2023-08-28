@@ -54,7 +54,7 @@ The Shunting Yard Algorithm is a method for parsing arithmetical or logical expr
                                     </dl>
                                     <p>
 
-## What is the main logic?
+## What is the logic of the algorithm?
 ```
   While there are tokens to be read:
        Read a token
